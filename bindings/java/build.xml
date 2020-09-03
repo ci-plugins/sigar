@@ -287,6 +287,7 @@
       <arg value="-I./include"/>
       <arg value="src/sigar_main.c"/>
       <arg value="-o"/>
+      <arg value="-fgnu89-inline"/>
       <arg value="${jni.bin}/lib/${jni.libname}"/>
     </exec>
     <chmod perm="a+x">

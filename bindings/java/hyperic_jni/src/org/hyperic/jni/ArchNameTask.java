@@ -75,7 +75,9 @@ public class ArchNameTask extends Task {
         if (ArchName.is64()) {
             getProject().setProperty("jni.arch64", "true");
             if (ArchLoader.IS_LINUX) {
-                if (!osArch.equals("ia64")) {
+                if (!osArch.equals("ia64") && !osArch.equals("mips64el")
+                       && !osArch.equals("mips64") 
+                       && !osArch.equals("aarch64")) {
                     getProject().setProperty("jni.gccm", "-m64");
                 }
             }
