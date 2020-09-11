@@ -17,6 +17,13 @@ jobs:
         run: ant
       - name: maven-setings-action
         uses: s4u/maven-settings-action@v2.1.1
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          # Artifact name
+          name: sigar-bin
+          # Destination path
+          path: bindings/java/sigar-bin/lib
       - name: Publish to GitHub Packages
         run: mvn -B deploy:deploy-file -Dfile=./sigar.jar -DrepositoryId=github -DpomFile=./pom.xml -Durl=https://maven.pkg.github.com/ci-plugins/sigar -Dtoken=$GITHUB_TOKEN
         working-directory: bindings/java/sigar-bin/lib
