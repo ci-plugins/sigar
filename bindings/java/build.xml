@@ -35,6 +35,7 @@
 
   <property name="jni.libversion" value="${file.version}"/>
   <property name="sigar.jar" value="sigar${file.version}.jar"/>
+  <property name="sigar-src.jar" value="sigar${file.version}-src.jar"/>
 
   &jni-build;
 
@@ -303,6 +304,14 @@
 
   <target name="pack">
     <jar jarfile="${sigar-bin}/lib/${sigar.jar}"
+         basedir="${build}/classes">
+
+      <manifest>
+        <attribute name="Main-Class"
+                   value="org.hyperic.sigar.cmd.Runner"/>
+      </manifest>
+    </jar>
+	<jar jarfile="${sigar-bin}/lib/${sigar-src.jar}"
          basedir="${build}/classes">
 
       <manifest>
