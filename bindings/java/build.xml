@@ -312,7 +312,7 @@
       </manifest>
     </jar>
 	<jar jarfile="${sigar-bin}/lib/${sigar-src.jar}"
-         basedir="${build}/classes">
+         basedir="${build}/src">
 
       <manifest>
         <attribute name="Main-Class"
