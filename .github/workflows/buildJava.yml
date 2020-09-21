@@ -15,6 +15,14 @@ jobs:
       - name: Build with Ant
         working-directory: bindings/java
         run: ant
+      - name: Build javadoc
+        working-directory: bindings/java
+        run: ant javadoc
+      - name: Upload javadoc
+        uses: actions/upload-artifact@v2
+        with:
+          name: javadoc
+          path: bindings/java/build/javadoc
       - name: maven-setings-action
         uses: s4u/maven-settings-action@v2.1.1
       - name: Upload a Build Artifact
