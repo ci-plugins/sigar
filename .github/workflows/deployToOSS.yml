@@ -1,4 +1,4 @@
-name: Java CI
+name: Deploy To OSS
 
 on:
   push:
@@ -28,7 +28,8 @@ jobs:
           echo allow-loopback-pinentry >> ~/.gnupg/gpg-agent.conf
           echo RELOADAGENT | gpg-connect-agent
           echo ${SIGNING_KEY} | awk '{gsub(/\\n/,"\n")}1'| gpg --dearmor > tmp_gpg.gpg
-          gpg --allow-secret-key-import --import tmp_gpg.gpg
+#          gpg --allow-secret-key-import --import tmp_gpg.gpg
+          gpg --import  --pinentry-mode loopback --batch --passphrase ${SIGNING_PASSWORD} tmp_gpg.gpg
           # try to deploy to stage
           ant stage
         env:
