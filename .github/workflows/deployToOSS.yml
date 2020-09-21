@@ -23,6 +23,10 @@ jobs:
           sed -r 's/<version>(.*)<\/version>/<version>\1-SNAPSHOT<\/version>/g' sigar-bin/lib/pom.xml  > sigar-bin/lib/pom-snapshot.xml
           ant snapshot
           # gpg
+          echo use-agent >> ~/.gnupg/gpg.conf
+          echo pinentry-mode loopback >> ~/.gnupg/gpg.conf
+          echo allow-loopback-pinentry >> ~/.gnupg/gpg-agent.conf
+          echo RELOADAGENT | gpg-connect-agent
           echo ${SIGNING_KEY} | awk '{gsub(/\\n/,"\n")}1'| gpg --dearmor > tmp_gpg.gpg
           gpg --allow-secret-key-import --import tmp_gpg.gpg
           # try to deploy to stage
