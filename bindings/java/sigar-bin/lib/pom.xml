@@ -2,15 +2,35 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>ci-plugins</groupId>
+    <groupId>com.tencent.devops.ci-plugins</groupId>
     <artifactId>sigar</artifactId>
     <version>1.7.0.0</version>
     <name>sigar</name>
-    <distributionManagement>
-             <repository>
-               <id>github</id>
-               <name>GitHub Packages</name>
-               <url>https://maven.pkg.github.com/ci-plugins/sigar</url>
-             </repository>
-  </distributionManagement>
+    <description>fork from hyperic/sigar</description>
+    <url>https://github.com/ci-plugins/sigar</url>
+    <licenses>
+        <license>
+            <name>Apache License 2.0</name>
+            <url>https://github.com/hyperic/sigar/blob/master/LICENSE</url>
+            <distribution>repo</distribution>
+            <comments>A business-friendly OSS license</comments>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>bk-ci</name>
+            <email>devops@tencent.com</email>
+            <url>https://bk.tencent.com</url>
+            <roles>
+                <role>Manager</role>
+            </roles>
+        </developer>
+    </developers>
+    <scm>
+        <connection>scm:git:https://github.com/ci-plugins/sigar.git</connection>
+        <developerConnection>scm:git:git@github.com:ci-plugins/sigar.git</developerConnection>
+        <url>https://github.com/ci-plugins/sigar</url>
+    </scm>
+
 </project>
